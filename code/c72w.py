@@ -21,7 +21,6 @@ class agent():
         return(f"Hi I'm agent {self.number}, I'm {self.coop}")
 
 
-
 # Network
 class circle():
     def __init__(self, n, p, w, b, c=1):
@@ -54,18 +53,19 @@ class circle():
         return sum([i.coop for i in self.arr])
 
 
-    def make_action(self): #iterazione
+    def make_action(self): # iterazione per fare revising
+        self.update_all_payoff()
+
         index = self.choose_one_rand().number
         if np.random.rand() > self.p:
             self.action_local_on(index)
         else:
             self.action_global_on(index)
-        self.update_all_payoff()
 
 
     # take a local action
     def action_local_on(self, index):
-        #select left or rigth
+        # select left or rigth
         if np.random.rand() > 0.5:
             choosen = self.access(index+1).number
         else:
