@@ -18,7 +18,7 @@ class agent():
         self.coop = coop
 
     def __repr__(self):
-        return f"Hi I'm agent {self.number}, I'm {self.coop}"
+        return(f"Hi I'm agent {self.number}, I'm {self.coop}")
 
 
 
@@ -36,45 +36,51 @@ class circle():
         self.global_defec = 0
 
 
-
     def access(self, index): # for accessing
         return self.arr[index%self.n]
+
 
     def choose_one_rand(self): #pick one node at random
         index = np.random.choice(self.n, 1)[0]
         return self.access(index)
 
+
     def flip_agent(self, index_flipped): #initialize the ring with 1 cooperator
         current = self.access(index_flipped)
         self.access(index_flipped).set_coop(not current)
+
 
     def count_coop(self):
         return sum([i.coop for i in self.arr])
 
 
-    def make_action(self, index): #iterazione
+    def make_action(self): #iterazione
+        index = self.choose_one_rand().number
         if np.random.rand() > self.p:
             self.action_local_on(index)
         else:
             self.action_global_on(index)
+        self.update_all_payoff()
+
 
     # take a local action
     def action_local_on(self, index):
         #select left or rigth
         if np.random.rand() > 0.5:
-            choosen = self.access(index+1)
+            choosen = self.access(index+1).number
         else:
-            choosen = self.access(index-1)
+            choosen = self.access(index-1).number
 
-        if copy_strategy(index, choosen):
+        if self.copy_strategy(index, choosen):
             self.flip_agent(index)
 
 
     # take a global action
     def action_global_on(self, index):
-        choosen_as_rand = self.choose_one_rand()
-        if copy_strategy(index, choosen_as_rand):
+        choosen_as_rand = self.choose_one_rand().number
+        if self.copy_strategy(index, choosen_as_rand):
             self.flip_agent(index)
+
 
     # compute logistic prob
     def copy_strategy(self, index, neighbor_index):
@@ -82,17 +88,25 @@ class circle():
         # return false: if we need to kepp the strategy
         return np.random.rand() < 1/(1+np.exp(self.w*(self.access(index).payoff - self.access(neighbor_index).payoff )))
 
+
     def update_all_payoff(self):
-        for i in
+        for a in self.arr:
+            if a.coop:
+                # give the payoff to other
+                self.access(a.number + 1).payoff += self.b
+                self.access(a.number - 1).payoff += self.b
+                # subtract what you have given
+                a.payoff -= 2 * self.c
+            else:
+                pass
 
 
     def count_coop(self):
-		#to calculate the total number of cooperators
-		A = 0 #fractio of nodes cooperating
+        # calculate the total number of cooperators
+        A = 0 # fraction of nodes cooperating
+        for i in range (self.n):
+            A +=1 if self.agent[i].coop == True else 0
 
-		for i in range (self.n):
-			A +=1 if self.agent[i].coop == True else 0
+        self.global_coop = A/(1.0*self.n)
 
-		self.global_coop = A/(1.0*self.n)
-
-		return A/(1.0*self.n)
+        return A/(1.0*self.n)
