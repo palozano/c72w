@@ -1,26 +1,44 @@
 # Complexity 72h code
 
+# PACKAGES
+import numpy as np
 
 
+# CLASSES
+
+# Individual
 class agent():
     def __init__(self, number, coop = True, payoff=0):
         self.number = number
         self.coop = coop #coop strategy = True; defection strategy = False
         self.payoff = payoff
 
-    def hard_change(self, coop):
+    #chenge the coop variable
+    def set_coop(self, coop):
         self.coop = coop
 
-
     def __repr__(self):
-        return f"Hi I agent {self.number}, I'm {self.coop}"
+        return f"Hi I'm agent {self.number}, I'm {self.coop}"
 
-
+# Network
 class circle():
     def __init__(self, n, p):
         self.p = p
         self.n = n
         self.arr = [agent(i) for i in range(n)]
+        self.global_coop = 0
+        self.global_defec = 0
+
+    def count_coop(self):
+		#print(1) fai un check se questo comando viene letto
+		A = 0 #frazione di nodi con opinione favorevole alla cooperazione
+
+		for i in range (self.n):
+			A +=1 if self.nodes[i].coop == True else 0
+
+		self.global_coop = A/(1.0*self.n)
+
+		return A/(1.0*self.n)
 
     def access(self, index):
         return self.arr[index%self.n]
@@ -31,7 +49,7 @@ class circle():
 
     def flip_agent(self, index_flipped):
         current = self.access(index_flipped)
-        self.access(index_flipped).hard_change(not current)
+        self.access(index_flipped).set_coop(not current)
 
     def count_coop(self):
         return sum([i.coop for i in self.arr])
@@ -45,6 +63,12 @@ class circle():
 
 
     def action_local_on(self, index):
+        #select left rigth
+        if np.random.rand() > 0.5:
+            pass
+        else:
+            pass
+
 
         pass
 
