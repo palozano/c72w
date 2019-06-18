@@ -3,14 +3,13 @@
 # PACKAGES
 import numpy as np
 
-
 # CLASSES
 
 # Individual
 class agent():
-    def __init__(self, number, coop = True, payoff=0):
+    def __init__(self, number, coop, payoff=0):
         self.number = number
-        self.coop = coop #coop strategy = True; defection strategy = False
+        self.coop = coop
         self.payoff = payoff
 
     #change the coop variable
@@ -23,37 +22,42 @@ class agent():
 
 # Network
 class circle():
-    def __init__(self, n, p, w, b, c=1):
+    def __init__(self, n, p, w, b, c=1, all_coop = True):
         self.b = b
         self.c = c
 
         self.p = p
         self.n = n
         self.w = w
-        self.arr = [agent(i) for i in range(n)]
-        self.global_coop = 0
-        self.global_defec = 0
+        self.arr = [agent(i, all_coop) for i in range(n)]
+
+        self.global_coop = n if all_coop else 0
+        self.global_defec = 0 if all_coop else n
+
 
 
     def access(self, index): # for accessing
         return self.arr[index%self.n]
 
-
     def choose_one_rand(self): #pick one node at random
         index = np.random.choice(self.n, 1)[0]
         return self.access(index)
-
 
     def flip_agent(self, index_flipped): #initialize the ring with 1 cooperator
         current = self.access(index_flipped)
         self.access(index_flipped).set_coop(not current)
 
-
     def count_coop(self):
         return sum([i.coop for i in self.arr])
 
 
-    def make_action(self): # iterazione per fare revising
+    def make_action(self): #iterazione
+        string = "-"
+        for i in self.arr:
+            string += "c-" if i.coop else "d-"
+        print(string)
+
+
         self.update_all_payoff()
 
         index = self.choose_one_rand().number
@@ -63,23 +67,26 @@ class circle():
             self.action_global_on(index)
 
 
+
+
     # take a local action
     def action_local_on(self, index):
-        # select left or rigth
+        #select left or rigth
         if np.random.rand() > 0.5:
             choosen = self.access(index+1).number
         else:
             choosen = self.access(index-1).number
 
         if self.copy_strategy(index, choosen):
-            self.flip_agent(index)
+            self.access(index).coop = self.access(choosen).coop
 
 
     # take a global action
     def action_global_on(self, index):
         choosen_as_rand = self.choose_one_rand().number
+
         if self.copy_strategy(index, choosen_as_rand):
-            self.flip_agent(index)
+            self.access(index).coop = self.access(choosen_as_rand).coop
 
 
     # compute logistic prob
@@ -92,10 +99,9 @@ class circle():
     def update_all_payoff(self):
         for a in self.arr:
             if a.coop:
-                # give the payoff to other
+                #give to other the payoff
                 self.access(a.number + 1).payoff += self.b
                 self.access(a.number - 1).payoff += self.b
-                # subtract what you have given
                 a.payoff -= 2 * self.c
             else:
                 pass
