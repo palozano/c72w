@@ -1,0 +1,250 @@
+\documentclass[11pt,a4paper,nofootinbib,floatfix]{revtex4-1}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{color}
+\bibliographystyle{aipnum4-1}
+\setcitestyle{numbers,square}
+
+\renewcommand{\baselinestretch}{1.0}
+
+\begin{document}
+
+\title{The Evolution Cooperation and the Interplay between Interaction and Competition Structures}
+
+\author{Bilge Aydin\textsuperscript{1}}
+\author{Marta Biondo\textsuperscript{2}}
+\author{Deepak Gupta\textsuperscript{3}}
+\author{Mattia Ivaldi\textsuperscript{2}}
+\author{Francesca Lipari\textsuperscript{4,5}}
+\author{Pablo Lozano\textsuperscript{5,6}}
+\author{Francesco Parino\textsuperscript{7}}
+\author{Ennio Bilancini\textsuperscript{8}}
+\email{ennio.bilancini@imtlucca.it}
+
+\author{Leonardo Boncinelli\textsuperscript{9}}
+\author{Valerio Capraro\textsuperscript{10}}
+
+\affiliation{\textsuperscript{1}Department of Urban Planning, Istanbul Technical University, Maslak, 34467 Sarıyer/İstanbul, Turkey}
+\affiliation{\textsuperscript{2}Department of Physics, Università degli Studi di Torino, Via Pietro Giuria 1, 10125 Torino, Italy}
+\affiliation{\textsuperscript{3}Dipartimento di Fisica G. Galilei, INFN, Università di Padova, Via Marzolo 8, 35131 Padova, Italy}
+\affiliation{\textsuperscript{4}Department of Economics and Law, University of Rome, Via Marcantonio Colonna, 19, 00192 Roma, Italy}
+\affiliation{\textsuperscript{5}Grupo Interdisciplinar de Sistemas Complejos (GISC)), Departamento de Matemáticas, Universidad Carlos III de Madrid, E-28911, Leganés, Madrid, Spain}
+\affiliation{\textsuperscript{6}Unidad Mixta de Comportamiento y Complejidad Social UC3M-UV-UZ (UMICCS), Madrid, Spain}
+\affiliation{\textsuperscript{7}Data Science Laboratory, ISI Foundation, Turin, Italy}
+\affiliation{\textsuperscript{8}IMT School for Advanced Studies, Piazza San Francesco 19, 55100 Lucca, Italy}
+\affiliation{\textsuperscript{9}Department of Economics and Management, University of Florence, Via delle Pandette, 32, 50127 Firenze, Italy}
+\affiliation{\textsuperscript{10}Department of Economics, Middlesex University, The Burroughs, Hendon, London, UK}
+
+
+
+
+\begin{abstract}
+\noindent\lipsum[2]
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+\noindent Humans are unique in the animal kingdom for their capacity to cooperate in large groups with unrelated others. Bees, ants, and the mole naked rat all live in large societies, but individuals in the same society share a substantial degree of biological relatedness. Non-human primates live in groups made of unrelated individuals, but these groups are rather small. In contrast, humans live in societies made of thousands, and sometimes millions of individuals, who cooperate everyday building the schools, the hospitals, and all the institutions that make humans, on average, richer, healthier, and safer than ever before \cite{pinker2018enlightenment}. In fact, scholars from several disciplines have argued that the capacity to cooperate is what has made humans particularly successful as an animal species \cite{fehr2002altruistic,milinski2002reputation,gintis2003explaining,fehr2004social,nowak2006five,herrmann2008antisocial,capraro2013model,rand2013human,perc2017statistical}, and psychologists have even proposed that the psychological mechanism supporting cooperation, \emph{shared intentionality}, is what makes humans uniquely humans, as it is possessed by children, but not by great apes \cite{tomasello2005understanding}.
+
+The evolution of cooperation among humans is however a puzzle, because cooperating requires individuals to pay a cost to benefit other individuals. Therefore, if evolution favors the fittest, non-cooperators should evolve at the price of cooperators. But this is not what we observe. What, then, makes humans so cooperative? Five fundamental rules have been proposed \cite{nowak2006five}, among which a prominent role is played by \emph{network reciprocity}. Humans, indeed, do not usually interact at random, but they tend to interact with some individuals more often than others. This may lead to the evolution of cooperation by reciprocity: I help you today because I expect you to help me tomorrow. This mechanism can create clusters of cooperators that can defend themselves from the invasion of defectors. Previous research using evolutionary game theory has indeed shown that network reciprocity can support the evolution of cooperation \cite{Axelrod81theevolution, Barker2017, milinski87, nowak_sigmund92, nowak_may92, maynardsmith82, hofbauer_sigmund98, gintis09}.
+
+The work of Ohtsuki \textit{et al.} \cite{ohtsuki06}, in particular, has been receiving considerable attention. Here, the authors examine the evolution of cooperation in several networks and under several updating mechanisms. All the updating rules considered by Ohtsuki \textit{et al.} \cite{ohtsuki06} share one property: they are \emph{local}. After each time step, a random individual is chosen to update its strategy: this individual will maintain its own strategy or imitate one of its neighbors'. According to this model, therefore, both interactions and information are local: individuals interact with their neighbors and then update their strategy according to the information they acquire about their neighbors' strategy.
+
+But modern societies are different. While it remains true that we mainly interact with our neighbors, we are constantly exposed to information regarding people we do not usually interact with. Social media, newspapers, television, and radio continuously inform us about the actions of people we have never seen before. We learn about extremely successful people and about extremely unsuccessful people, and this information can influence the way we update our strategy in reality. In other words, in modern societies, information is not local, but has a global component. This raises an important question: Does global information favor or disfavor the emergence of cooperation, compared to local information?
+
+
+%Human society is based \textcolor{red}{on} a large extent to the mechanism of cooperation \cite{nowak1992evolutionary,Pennisi93}. One of the hunting research question in the study of cooperation is to understand how some societies are more effective than others in spreading cooperation. {\color{red}Evolution has a paramount importance} for such spreading however, it does not take place in the vacuum. Evolutionary trajectory depends on the interaction structure and on the type of information to which people are exposed, whether it is \textcolor{red}{\textit{local} or \textit{global}} information. Evolutionary mechanism, structure and information play a pivotal role in the investigation of the emergence and the stabilization of cooperative capacity of societies. Evolutionary game theory has proven to be one of the most fruitful approaches \textcolor{red}{in investigating} this problem using evolutionary models based on so-called social dilemmas like the \textit{Prisoner’s Dilemma} (PD, henceforth) \cite{Axelrod81theevolution, Barker2017, milinski87, nowak_sigmund92, nowak_may92, maynardsmith82, hofbauer_sigmund98, gintis09}.
+
+%The literature on the emergence and the survival of cooperation provides several mechanisms through which cooperation can spread \cite{nowak_fiverules06,nowak_may92}, among them the structure of population is the goal of the current paper. The intuition behind the importance of the structure is that in spatially structured populations, since individual does not interact with every other, but with a small subset of the population, which constitutes her neighborhood and is arranged according to an underlying network of relationships, the cooperation will emerge (see \cite{roca_cuesta09} for a review in the broader context of 2$\times$2 games).
+
+%The implication of playing PD in a well-mixed populations and in an unstructured population, where all individuals interact equally likely with each other, the natural selection favors defectors over cooperators. If instead the population is spatially distributed, the chances for cooperation increases \cite{nowak_may92,ohtsuki06,nowak_fiverules06} supported by the fact that local interaction, i.e., the interaction with the nearest-neighbors. Consequently, cooperators are able to resist invasion by defectors, depending on limited range of the game parameters, on the topological structure, and to the level of heterogeneity\footnote{A networked society is called heterogeneous if all its player possess a different number of neighbors, \textit{i.e.} small world, random or scale free network. Homogeneous networked structures have players sharing the same number of neighbors, \textit{i.e.} circle network or regular graphs)} of such neighborhood \cite{santos_pacheco06}. \textcolor{red}{As compared to previous understanding of the fixation of cooperation with the use of single strategy, in certain situations where one considers the combination of different imitation rules, the interplay between these rules effects the fixation probability of the cooperation as compared to considering the individual strategies of the updation of the population \cite{Roca_2009,vilone2012social}.}
+
+%Among the extensive literature the current paper is inspired by the work of Ohtsuki \textit{et al} \cite{ohtsuki06} in which the authors examine a simple case of PD interaction on homogeneous networks with different topology. They find that, the natural selection favors cooperation if the \textit{\textcolor{red}{benefit-to-cost}} ratio of cooperation exceeds the number of neighbours per individual. For example, if everyone has exactly five neighbours, cooperation succeeds if it provides at least five times as much benefit as the cost a cooperator pays. In the paper, cooperation emergence is supported by \textcolor{red}{certain} specific \textcolor{red}{update} rules, among which there is an Imitation Rule: in each time-step a random individual is chosen to evaluate its strategy; it will either stay with its own strategy or imitate a neighbour’s strategy proportional to \textcolor{red}{its} payoff.
+%The Imitation Rule entails an important feature of networked structures that is to use the connection among the people as \textcolor{red}{a} mean for spreading the information about the behavior of others. \textcolor{red}{Given} the repeated interaction with her neighbour, a player will gather the information that cooperation/defection is more convenient. Yet, in real life, people do make their decision only to keep up with the Johneses, but their behavior can be influenced by \textcolor{red}{the global information \cite{vilone2012social} such as the information coming outside from their inner circle. These examples includes  \textit{e.g.} the news from the radio, the newspaper, and the social media.}
+
+Here we report a set of numerical simulations to study the evolution of cooperation in situations in which interactions are local, but information is, with some probability $p$, global. We let the parameter $p$ vary from $0$ (local information) to $1$ (fully global information). As a network structure, we start from the basic case considered also by Ohtsuki \textit{et al.} \cite{ohtsuki06}, the one-dimensional ring. Following Ohtsuki \textit{et al.} \cite{ohtsuki06}, nodes interact with their neighbors through a Prisoner's dilemma. After every interaction, one node is \textcolor{red}{to be completed once we have the final simulations}
+
+We study the emergence and evolution of cooperation in a situation in which the cooperation and the defection are the competing strategies and the agents are place on a ring structured \textcolor{red}{network. These individuals} interact, stochastically, among each other by playing a PD. The stochasticity in interaction comes from the possibility, for an agent, to access local (i.e., the agent compares his payoff only with his neighbours) or global (i.e., the agent can access the payoff of a random agent in the network, either a neighbor or not) information. At each round, the agents calculate their payoff and after such a calculation, they have the possibility to revise their strategy according to our Imitation Rule that combine, in a convex fashion, both local and global information. \textcolor{red}{With the passing of time}, one strategy will win out: society will converge to a state where either everyone cooperates or no one does. This final state will be measured in terms of \texit{relative fixation probability} that is the relative probability of reaching a final configuration of the society in which \textit{Cooperation} beats \texit{Defection}.
+
+We run two experiments with two different initialization of the population: the \texit{Cooperative-Society} in which all agents but one are Cooperators and the \texit{Defecting-Society} in which all agents are Defectors except for one. In doing so we are interested in understanding how much the "local VS global" information dynamics favors cooperation in societies with the two extreme cooperators-defectors ratios. In a nutshell, we aim to investigate how, for specific value of the benefit-cost ratio, the global \textcolor{red}{information increases the probability of cooperation to beat that of defection} in both social configurations.
+
+The paper is structured as it follows. In Sect II we give the background in evolutionary game theory relevant to our work, introducing symmetric $2\times2$ games and several evolutionary rules for the update of strategies. Section III we present our results about the influence of spatial structure and global information on the evolution of cooperation. In Section IV we present our methods. Finally, Section V deals with the discussion and concludes the paper summarizing our most important points and giving some additional remarks. 
+
+
+\section{Methods}
+%
+\noindent We consider the Prisoner's Dilemma (PD) game among $N$ players, who interact with their neighbors in a one-dimensional ring. In the PD, a player can either cooperate (C) or defect (D). Cooperating means paying a cost $c$ to give a greater benefit $b$ to the other player (see Table \ref{table:pd}). 
+
+%Let us consider a symmetric $2\times2$ game, a game with $j$ agents who posses two roles $(C, D)$ where $C$ means cooperation and $D$ means defection, who interacts with $2$ neighbors, one at her right ($j+1$) and one at her left ($j-1$), in a one-dimensional ring. At any time step the agents play a PD with their neighbors choosing between two strategies of \textit{Cooperate} or \textit{Defect}, $s_j=\{C;D\} $. Each agent obtains a payoff given by the following matrix:
+
+%\renewcommand{\arraystretch}{1}
+\begin{table}[h]
+    \setlength{\extrarowheight}%{10pt}
+    %\setwidth{\extracolumnheight}{10pt}
+    \Large
+    \centering
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{$C$}  & \multicolumn{1}{c}{$D$} \\\cline{3-4}
+      \multirow{}{}  & $C$ & $b-c$ & $  -c$ \\\cline{3-4}
+      & $D$ & $-c$ & $  0$ \\\cline{3-4}
+    \end{tabular}
+    \caption{Payoff matrix of the Prisoner's Dilemma}
+    \label{table:pd}
+  \end{table}
+  
+%The parameters $b$ and $c$ denote the benefit for the recipient and the cost for the donors.
+%Each individual, if acting in pure self-interest, would choose not to cooperate. Yet cooperation by everyone leads to greater prosperity for all.
+%The two strategies, cooperation and non-cooperation, spread through the network as individuals imitate, or learn from, their neighbours. Individuals are more likely to imitate neighbours who do better in the prisoner’s dilemma. The payoff comparison $(\pi_c- \pi_d)$ is the motivation driving agents to keep their strategy or change it. Over time, one strategy will win out: society will converge to a state where either everyone cooperates or no one does. 
+
+%To study the competition between cooperation and defection we borrow from the evolutionary theory the assumption that the payoffs obtained by playing the game are considered as fitness. The classic framework to do so is the replicator dynamics\cite{J. Hofbauer and K. Sigmund,, 1998; Gintis, 200}. Let $C$ be the density of cooperators, and $f_c$ and $f_d$ the fitness of a cooperator and a defector, respectively. The replicator dynamics posits that $C$ evolves as: 
+%\begin{align}
+%\mathcal{\dot{C}}=C(1-C)(f_c-f_d),
+%\label{fate}
+%\end{align}
+%where the fitness for each player is $f_j= w\pi_j$, in which $0<w<1$ is the parameter that controls the intensity of selection according to \cite{Ohtsuki et al.}. Then, if cooperators are doing better than defectors their density rises accordingly, and the opposite occurs if they are doing worse. 
+%In the current paper the mechanisms guiding such convergence are mainly three.
+%The first mechanism is represented by the \textit{Revising possibility}. At the beginning of every stage the payoff of all the agents are calculated and after such calculation at random an agent $j$ is chosen at random with probability ($1/N$) to revise his strategy. The revision of the strategy will depend on the Imitation Strategy he will choose to implement. 
+%The second one is the \textit{Imitation Strategies} that is stochastic and depends on the probability $p \in (0,1)$ that the agent $j$ compares his payoff only with his neighbors. This is what we call \textit{Local Imitation Strategy}. With probability $(1-p)$ agent $j$ will compare his payoff with the one of a randomly picked agent.
+%The third mechanism is the \textit{Updating Rule} that following a logistic probability function.\footnote{In physics such rule is also called the \textit{Fermi rule}.}
+
+%The probability of player $j$ adopting the strategy of player $k$ at time $t$ is given by 
+%\begin{align}
+%\mathcal{P}\{s^t_k \longrightarrow s^k_j\}=\dfrac{1}{1+e^{w (\pi_k- \pi_j) }},
+%\label{fate}
+%\end{align}
+%where $w\in \{0, 1\}$ is the strength of the selection.
+%and if the selected node $j$ has a label of cooperator, we compute the strategy to change its label with respect to the probability $1-\mathcal{P}$
+%For each Imitation rule $\Delta\pi$ take different values.
+%In the local Imitation rule agent $j$ calculate the averages of the payoffs out the difference between his payoff and the agent on his right and on his left. Hence $\Delta\pi= (\langle P_D\rangle-\langle P_C\rangle)$ 
+%In the global Imitation rule agent $j$ calculate only the difference between his payoff to the one of the randomly picked agent $k$, then $\Delta\pi= \pi^t_k - \pi^t_i$ at time $t$.
+%
+%\section{Methods-Simulation}
+%
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{FIGUE/flowchart.jpg}
+    \caption{Flow chart for the numerical simulation to compute the fixation for the cooperation. Red color letters indicate the first selected nodes, whereas blue letters are those chosen according to the global or local information. The probability $\mathcal{P}\{D \longrightarrow C\}$ is computed as in Eq.~\eqref{fate}.}
+    \label{fig:FC}
+\end{figure}
+%In our simulations we consider a system of $N$ nodes on a one-dimensional ring. 
+To compute the probability of fixation of cooperators (defectors), for a given realization, we initialize the system by labelling $N-1$ nodes as defectors (cooperators) and the remaining node as cooperator (defectors). The simulations are run with discrete time ($t=0, 1, 2, ...$). At time $t=1$, we do the following steps. First, we select a node $j$ with probability $1/N$. Then, with probability $p$, a random node $l\neq j$ is chosen to play the role of the source of information (global information); with probability $1-p$, the nearest neighbours ($j-1$ and $j+1$) of $j$ are selected to play the role of sources of information (local information). If the selected nodes have all the same strategy of the original node, then we end the step and start over by selecting another random node $j$. Otherwise, we compute the average payoff of the defectors, $\langle \pi_D\rangle$, and that of the cooperators, $\langle \pi_C\rangle$, for all the selected nodes. Then, if node $j$ was a defector, then it updates its strategy from $D$ to $C$ with probability
+\begin{align}
+\mathcal{P}\{D \longrightarrow C\}=\dfrac{1}{1+e^{w(\langle \pi_D\rangle-\langle \pi_C\rangle) }};
+\label{fate}
+\end{align}
+else if $j$ was a cooperator, then $j$ changes its strategy from $C$ to $D$ with probability $1-\mathcal{P}\{D \longrightarrow C\}$. ($w$ represents the strength of selection: if $w\to0$, payoffs cease to matter and strategies change at random; if $w\to\infty$, players change strategy only if they acquire information from a more successful node). Similarly, in the case of the global dynamics, node $j$ updates its strategy with similar probabilities, but this time the comparison is done with $l$, instead of $j-1$ and $j+1$. Finally, the time is incremented by one unit. We recursively perform the same realization until the fixation for the cooperation (defection) is achieved, that is, all the nodes become cooperators (defectors). 
+
+We then compute the number of times $\mathcal{R}_C^\prime$ ($\mathcal{R}_D^\prime$) the fixation of cooperators (defectors) is achieved out of a total of $\mathcal{R}$ realizations, and their respective frequencies $\mathcal{R}_C^\prime/\mathcal{R}$ ($\mathcal{R}_D^\prime/\mathcal{R}$). The scheme of the numerical simulation to compute the fixation of the cooperation is shown in Fig.~\ref{fig:FC}.
+
+%We run computer simulations for multiplex networks of $N=1000$ agents, are allocated on two ring networks~\ref{fig:}, the Cooperative-society with one defector and $N-1$ cooperator, and the Defecting-society with one cooperator and $N-1$ defectors. We manipulate, during the simulations, the value of $p$, the $w$ and $b$.
+
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=15cm]{FIGUE/flowchart.jpg}
+%    \caption{The flow chart for the numerical simulation to compute the fixation for the %cooperation is shown. In the figure, the red color letters indicates the first selected %nodes whereas the blue ones are those chosen accordingly to the global or local selection. %The probability $\mathcal{P}\{D \longrightarrow C\}$, given in Eq.~\eqref{fate}, decides %the $strategy for a defector to change as cooperator whereas the probability %1-\mathcal{P}\{D $$\longrightarrow C\}$ gives the strategy for a cooperator to switch as a %defector.}
+%    \label{fig:FC}
+%\end{figure}
+
+
+
+%\begin{table}[]
+%\begin{tabular}{cclcl}
+%                       & \multicolumn{2}{c}{C}    & \multicolumn{2}{c}{D}   \\ \cline{2-5} 
+%\multicolumn{1}{c|}{C} & \multicolumn{2}{c|}{b-c} & \multicolumn{2}{c|}{-c} \\ \cline{2-5} 
+%\multicolumn{1}{c|}{D} & \multicolumn{2}{c|}{-c}  & \multicolumn{2}{c|}{0}  \\ \cline{2-5} 
+%\end{tabular}
+%\end{table}
+
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width = \textwidth]{goodone.eps}
+%\caption{The Circle}
+%\label{fig:network}
+%\end{figure}
+
+\section{Results}
+The main hypothesis of the current papers are three.
+HY1:GLobal VS Local
+   - level of fixation probability
+   -
+
+Hy2: The role of weak/strong selection
+
+Hy3: The first impression matter: how likely it is to get to a final state in which all agents are cooperators if we start from a Defecting-Society? How does it change if we start with a Cooperative- Society?
+
+-----------------
+
+By means of simulation we explore if natural selection can favor cooperation on a structured graphs for different level of local and global information. In order to do this, we need to calculate the probability that a single cooperator starting in a random position turns the whole population from defection to cooperation in the Defecting Society. We also calculate the reciprocal fixation probability of a single defector in a population of cooperators turning the whole population to defection, and compare the two fixation probabilities among each other and against the general case of well-mixed population. Furthermore we calculate also the convergence time that the society needs to reach its final configuration of all cooperators (all defectors) with respect to the probability of going local.\footnote{Since the value of $w=1$ is a critical one, we run different number of simulations, $\mathcal{R}=5000$ for fixation probability and $\mathcal{R}=10000$ for the convergence time.}
+
+\textbf{Defecting-Society}:
+We first present the results of the analysis of the Defecting Society in which one cooperator is surrounded by all defectors. How likely is it that the society will reach a composition in which all the agents are cooperators? In other words, how does the fixation probability change with respect to change in the strength of selection and if the system allow the agent to access more global information? Figure \ref{fig:fix_coop} shows the results of the simulation for the specific case. Panel (a), on the left, shows the trend of the fixation probability of cooperation with respect to different value of the information, i.e. from local to global, and for distinct level of selection, i.e. from weak to strong selection. We compare the resulting trends to the one that arise from the general case of a well-mixed population (i.e. gray straight line). Let us start by analyzing the role of local (global) information in the evolution of cooperation: agent access and imitate only his neighbors. At the limit case of $p=0$ the agents access only local information and the initial level of fixation probability depends solely on the strength of the selection. When weak selection is at work, the payoff motivation does play a crucial role in driving imitation strategy, and as a result the fixation probability in a structure network ($~0.06$) is greater than the well-mixed one $1/N=~0.03$. This occurs also when selection reaches mild level, i.e. $w=0.1$. When, instead, the selection is strong (i.e. $w=0.5$ or $w=1$) the probability to reach final cooperation is motivated by the payoff dynamics: the agents discover that defection is more profitable and hence the instance to reach full cooperation are of a minimum order. As we weaken the probability of accessing only local information, we allow the agent to create some clusters with other agents outside their small neighborhood of two people. In the range $0.1<p<0.6$ the difference between weak selection, on one hand, and mild and strong selection, on the other, exacerbate. In the weak selection scenario, having the possibility to expand the sights over the neighborhood increases the spreading of cooperation because all the random pick distributed in time brings higher global information at to the point that the ring could be conceptually equivalent to a complete graph. The fixation probability under weak selection and intermediate $p$ is hill-shaped while under strong selection is monotonically decreasing. The trend of the fixation probability switches from weak to strong selection regime in a continuous way while $w$ increases as suggested by the red and green line under mild selection. Finally, as $p$ increases to the point that interaction is completely random as if the ring does not constrain the agents. At this stage, the clustering transformation of the ring favours defection mimicking the same results of a well-mixed population in case of weak selection where there is a probability of $1/N$ to reach full cooperation. If instead we increase the importance of payoff, the probability of attaining a full cooperative society  radically decreases towards zero.
+
+Another prominent focus of our study concerns the time necessary for the system to reach the final configuration as function of the local (or global) interaction. Figure \ref{fig:time_coop} panel (a) display the mean fixation time of the cooperators as function of $p$. In case of weak and mild selection the as average convergence time decreases with the extent of globalization. When the selection is strong ($w=1$) and $p>0.6$, it is almost impossible to reach the total cooperation, so the mean fixation time is not defined.
+Figure \ref{fig:time_coop} panel (b) shows qualitative changes in the convergence time distribution corresponding to different values of $p$ in the regime of weak selection.
+In summary, introducing the globalization in our model affects fixation probability in a non-trivial way, on the other hand, its consequence in terms of timing is to speed up the dynamic of the system. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=15cm]{FIGUE/plots-09.jpg}
+    \caption{\textbf{Evolution of Cooperation.} Results for the fixation probability of cooperation in Defecting Society. The simulations were run for $N=30$ and $b=5$. The figure illustrates the evolution of the fixation probability of cooperators for different values of $p$ and of the strength of selection $w$. The panel shows that for $0<w< 0.001$ the probability of ending with all agents cooperating follows a non-monotonic function with respect to $p$. The results for the evolution of cooperation in our model are compared to the results obtained in the well-mixed population case.}
+    \label{fig:fix_coop}
+\end{figure}
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=7.5cm]{FIGUE/plots-10.png}
+    \includegraphics[width=8.5cm]{FIGUE/fixation_distributions.png}
+    \caption{\textbf{Convergence Time for Cooperation.} Panel (a) on the left shows the results for the average time of convergence to cooperation under different selection regime and for variation in $p$.
+    Panel (b) on the right shows convergence time distributions in the regime of weak selection.}
+    \label{fig:time_coop}
+\end{figure}
+
+
+\textbf{Cooperative-Society}: 
+Figure \ref{fig:fix_def} shows the results of the simulation for the Cooperative Society in which one defector is surrounded by all cooperators. How likely is it that the society will reach a composition in which all the agents are defectors? Panel on the left, shows the trend of the fixation probability of defection with respect to different value of the information and for distinct level of selection. Also here, we compare the resulting trends to the one that arise from the general case of a well-mixed population (i.e. gray straight line). Differently from the previous case, here, regardless $p$, for each level of natural selection all the probability of fixation for defectors are, at different rate, all hill-shaped and higher than the well-mixed case. Here, at the limit case of $p=0$, in which the agents access only local information, the difference in the initial level of fixation probability for each strength of the selection reaches its minimum. From $p>0$ then the six curves forms three different regions and starts to diverge. When weak selection is at work, since the payoff does not trigger people to defect, the fixation probability of defectors is restrained even in case of global interaction. Increasing the probability of being influenced by other people outside the ring connections favours the spread of defection but at a small rate. The opposite occurs when selection reaches mild level, i.e. $w=0.1$ and the probability of spreading the defecting behavior amplifies when the selection is strong (i.e. $w=0.5$ or $w=1$) and the payoff dynamics motivates defectors to remain as such and cooperation to mimic them. However, all the three regime of natural selection, the probability of reaching an all-defector society reaches its maximum for intermediate level of local/global interaction.
+Finally, as $p$ increases to the point that interaction is completely random the clustering transformation of the ring favours cooperation causing a decrease of all the six curves. Under weak regime the fixation probability decreases up to the point of reaching the fixation probability rate of a well-mixed society. If we increase the importance of payoff, the probability of attaining a full-defector society, even if decreases at a faster pace, it realizes higher probabilities to end up with full-defectors than the well-mixed scenario.
+
+Figure \ref{fig:fix_def} panel (b) display the mean fixation time of the defectors as function of $p$. In case of weak and mild selection the average convergence time decreases with the extent of globalization with an almost linear trend. When the selection is strong ($w=1$) fixation time is highly reduced.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=7.8cm]{FIGUE/fixation_prob_Fd.eps}
+    \includegraphics[width=8.2cm]{FIGUE/fixtime_defc.eps}
+    \caption{\textbf{Evolution of Defection.} Results for the fixation probability of defection in Cooperative Society. The simulations were run for $N=30$ and $b=5$. Panel (a) on the left illustrates the evolution of the average time needed to reach total defection for different values of $p$ and of the strength of selection $w$. 
+    Panel (b) on the right shows convergence time distributions in the regime of weak selection. }
+    \label{fig:fix_def}
+\end{figure}
+
+\textbf{Relative performance}
+Comparison between Cooperative (Defecting) Society and the ideal case described by the well-mixed population is important for understanding how much 
+
+Of higher importance there is the direct comparison of the two scenario. What is the best system, between the two, that with the same $b$, fosters, with a higher rate of success, full cooperation? To answer this question we compute the relative fixation probability and we study its variation with respect to the variation of the benefit of the PD game. Figure \ref{fig:cross} shows that for one single value of $b$, called $b*,$ the two probability of fixation cross each other. It means that, under strong selection and local interactions, for $b=b*$ the chances to end up in a final society with all cooperators are the same regardless the initial configuration society. For $b<b*$ the probability of reaching a final status of total cooperation is more likely when the society initial status is the cooperative one, while as $b>b*$ a society with an initial configuration of all defector has a great probability to settle with a configuration of all cooperators.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{FIGUE/probfix_07.jpg}
+    \caption{Probability of fixation with respect to the benefit $b$. The orange solid line corresponds to the cooperators while the blue solid line }
+    \label{fig:cross}
+\end{figure}{}
+
+
+
+\section{Discussion}
+
+
+
+
+\hfill \break
+\textbf{Acknowledgments:} This work is the output of the Complexity72h workshop, held at IMT School in Lucca, 17-21 June 2019. https://complexity72h.weebly.com/
+
+\bibliography{./jobname}
+
+
+\end{document}
