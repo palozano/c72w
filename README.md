@@ -1,1 +1,2 @@
-# Repository for code, latex, documents from the Complexity72h Workshop.
+# Complexity72h Workshop.
+Repository for code, latex, documents from the project.
